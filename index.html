@@ -3,36 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
 <title>Private VIP Host | Exclusive Membership Club</title>
 <style>
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{margin:0;background:#090909;color:#f5ecd8;font-family:Georgia,serif}
 header{padding:25px;text-align:center;border-bottom:1px solid #b99550}
 .brand{color:#d8b66b;font:bold 20px Arial;letter-spacing:3px}
 nav{padding:18px;text-align:center}
-nav a{color:#d8b66b;text-decoration:none;margin:12px;font:13px Arial}
-.hero{text-align:center;padding:90px 20px;background:radial-gradient(#44331c,#090909 70%)}
+nav a{color:#d8b66b;text-decoration:none;margin:0 12px;font:13px Arial}
+.hero{text-align:center;padding:80px 20px;background:radial-gradient(#44331c,#090909 70%)}
 h1{font-size:clamp(38px,8vw,65px)}
 .gold{color:#d8b66b}
 p{color:#c4bcae;line-height:1.7}
-.btn{display:inline-block;background:#d8b66b;color:#111;padding:14px 25px;text-decoration:none;font:bold 13px Arial}
-section{padding:65px 20px;max-width:1100px;margin:auto}
+.btn{display:inline-block;background:#d8b66b;color:#111;padding:14px 25px;text-decoration:none;font:bold 13px Arial;border:0;cursor:pointer}
+section{padding:60px 20px;max-width:1100px;margin:auto}
 h2{text-align:center;font-size:34px}
 .intro{text-align:center;max-width:650px;margin:20px auto 35px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#171717;border:1px solid #80632f;padding:30px;text-align:center}
-.card h3{color:#d8b66b;font: bold 20px Arial}
-.price{font-size:38px}
+.vip-showcase{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;perspective:1000px}
+.vip-card{width:min(300px,86vw);height:190px;border-radius:17px;padding:2px;box-shadow:0 14px 38px #000b;animation:float 4s ease-in-out infinite;transition:transform .35s,filter .35s;cursor:pointer}
+.vip-card:nth-child(2){animation-delay:.5s}
+.vip-card:nth-child(3){animation-delay:1s}
+.vip-card:hover,.vip-card:focus{transform:rotateY(12deg) rotateX(5deg) scale(1.05);filter:brightness(1.2);outline:2px solid #f1d58a}
+.vip-inner{height:100%;border-radius:15px;padding:17px 19px;position:relative;overflow:hidden;text-align:left;background:radial-gradient(circle at 80% 15%,#80602b,#21180b 70%);border:1px solid #e0c17b}
+.diamond .vip-inner{background:radial-gradient(circle at 80% 15%,#647d83,#101a20 70%);border-color:#dcebed}
+.royal .vip-inner{background:radial-gradient(circle at 80% 15%,#774e8d,#1b1028 70%);border-color:#e2c77d}
+.vip-top,.vip-foot{display:flex;justify-content:space-between;letter-spacing:2px;font:9px Arial;color:#f3dfaa}
+.vip-mark{font:italic 53px Georgia,serif;text-align:center;margin-top:4px;color:#f4d88e;text-shadow:0 0 18px #f7d88999}
+.vip-name{text-align:center;letter-spacing:3px;font:bold 15px Arial}
+.vip-price{text-align:center;margin-top:7px;font:22px Georgia,serif;color:#fff}
+.vip-price small{font:10px Arial;color:#e5d9bd}
+.vip-foot{position:absolute;bottom:14px;left:19px;right:19px;justify-content:center;font-size:8px}
+.card-note{text-align:center;font:12px Arial;max-width:690px;margin:28px auto;color:#b8ad99;line-height:1.7}
 .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
 .feature{padding:22px;border-left:2px solid #d8b66b;background:#171717}
 .notice{border:1px solid #80632f;padding:20px;margin:30px auto}
 form{max-width:600px;margin:auto;display:grid;gap:12px}
-input,select,textarea{padding:14px;background:#171717;color:white;border:1px solid #80632f}
-button{padding:15px;background:#d8b66b;border:0;font-weight:bold}
-footer{text-align:center;padding:30px;border-top:1px solid #80632f;color:#aaa}
+input,select,textarea{padding:14px;background:#171717;color:white;border:1px solid #80632f;width:100%}
+button{padding:15px;background:#d8b66b;border:0;font-weight:bold;cursor:pointer}
+footer{text-align:center;padding:30px;border-top:1px solid #80632f;color:#aaa;font:13px Arial}
+@keyframes float{
+0%,100%{translate:0 0;rotate:-1deg}
+50%{translate:0 -9px;rotate:1deg}
+}
+@media(prefers-reduced-motion:reduce){.vip-card{animation:none}}
+@media(max-width:480px){
+nav a{margin:0 6px;font-size:11px}
+.hero{padding:58px 18px}
+}
 </style>
 </head>
 <body>
+
 <header>
 <div class="brand">PRIVATE VIP HOST</div>
 <p>EXCLUSIVE MEMBERSHIP CLUB</p>
@@ -52,15 +75,111 @@ footer{text-align:center;padding:30px;border-top:1px solid #80632f;color:#aaa}
 </div>
 
 <section id="memberships">
-<h2>VIP Memberships</h2>
-<p class="intro">Choose your preferred membership. Every application is reviewed individually.</p>
-<div class="cards">
-<div class="card">
-<h3>GOLD VIP</h3>
-<div class="price">$100</div>
-<p>12-month membership.</p>
-<a class="btn" href="#apply">APPLY</a>
+<h2>Explore Your VIP Cards</h2>
+<p class="intro">Choose the membership level that interests you. Tap or focus a card to see its animated finish.</p>
+
+<div class="vip-showcase">
+
+<article class="vip-card gold" tabindex="0" aria-label="Gold VIP membership card">
+<div class="vip-inner">
+<div class="vip-top"><span>PRIVATE VIP HOST</span><span>✦</span></div>
+<div class="vip-mark">G</div>
+<div class="vip-name">GOLD VIP</div>
+<div class="vip-price">$100 <small>/ 12 months</small></div>
+<div class="vip-foot">EXCLUSIVE MEMBERSHIP</div>
 </div>
-<div class="card">
-<h3>DIAMOND VIP</h3>
-<div class="price">$
+</article>
+
+<article class="vip-card diamond" tabindex="0" aria-label="Diamond VIP membership card">
+<div class="vip-inner">
+<div class="vip-top"><span>PRIVATE VIP HOST</span><span>✧</span></div>
+<div class="vip-mark">D</div>
+<div class="vip-name">DIAMOND VIP</div>
+<div class="vip-price">$150 <small>/ 12 months</small></div>
+<div class="vip-foot">PREMIUM MEMBERSHIP</div>
+</div>
+</article>
+
+<article class="vip-card royal" tabindex="0" aria-label="Royal VIP membership card">
+<div class="vip-inner">
+<div class="vip-top"><span>PRIVATE VIP HOST</span><span>♛</span></div>
+<div class="vip-mark">R</div>
+<div class="vip-name">ROYAL VIP</div>
+<div class="vip-price">$300 <small>/ lifetime</small></div>
+<div class="vip-foot">LIFETIME MEMBERSHIP</div>
+</div>
+</article>
+
+</div>
+
+<p class="card-note">
+These are illustrative card previews, not active membership credentials.
+A unique member ID and verification QR can only be issued after an application
+is approved and payment is independently confirmed. Membership is subject
+to the club's published terms.
+</p>
+
+<a class="btn" href="#apply">APPLY FOR MEMBERSHIP</a>
+</section>
+
+<section id="benefits">
+<h2>Member Experience</h2>
+<p class="intro">A clear, respectful membership experience with benefits and rules explained before joining.</p>
+
+<div class="features">
+<div class="feature">
+<h3 class="gold">Exclusive Updates</h3>
+<p>Receive club announcements and relevant membership updates.</p>
+</div>
+
+<div class="feature">
+<h3 class="gold">Event Information</h3>
+<p>Access information about eligible member events and invitations.</p>
+</div>
+
+<div class="feature">
+<h3 class="gold">Member Support</h3>
+<p>Contact the club for help with your application and membership.</p>
+</div>
+</div>
+</section>
+
+<section id="apply">
+<h2>Membership Enquiry</h2>
+<p class="intro">Send an enquiry to learn about the application process. This demo form does not submit or store personal information.</p>
+
+<div class="notice">
+<p>
+Applications are reviewed individually. Payment does not guarantee acceptance.
+Do not enter passwords, wallet recovery phrases, private keys, or gift-card
+redemption codes on this page.
+</p>
+</div>
+
+<form onsubmit="event.preventDefault();alert('This is a visual preview only. Your enquiry has not been sent. Please email privateviphost87@gmail.com to ask about the application process.');">
+<input aria-label="Name" placeholder="Your name" required>
+<input type="email" aria-label="Email" placeholder="Your email address" required>
+
+<select aria-label="Membership interest" required>
+<option value="">Membership interest</option>
+<option>Gold VIP — $100 / 12 months</option>
+<option>Diamond VIP — $150 / 12 months</option>
+<option>Royal VIP — $300 / lifetime</option>
+</select>
+
+<textarea aria-label="Message" placeholder="Your message" rows="4"></textarea>
+<button type="submit">PREVIEW ENQUIRY</button>
+</form>
+
+<p class="intro">
+Contact:
+<a class="gold" href="mailto:privateviphost87@gmail.com">privateviphost87@gmail.com</a>
+</p>
+</section>
+
+<footer>
+© 2026 PRIVATE VIP HOST · EXCLUSIVE MEMBERSHIP CLUB
+</footer>
+
+</body>
+</html>
